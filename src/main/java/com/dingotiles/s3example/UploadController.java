@@ -26,7 +26,7 @@ public class UploadController {
     }
 
     @RequestMapping(value = "/upload")
-    public String importParse(
+    public String upload(
             //@RequestParam("file") MultipartFile myFile,
             final RedirectAttributes redirectAttributes) {
             redirectAttributes.addFlashAttribute("flash.message", "File was uploaded!");
