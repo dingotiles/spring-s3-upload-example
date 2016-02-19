@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * Created by jcarter on 19/02/16.
  */
 @Configuration
-public class AWSConfig {
+public class CloudConfig {
 
     @Bean
     Cloud cloud() {
