@@ -1,8 +1,8 @@
 ---
 applications:
-- name: trivial-spring-boot
+- name: spring-s3-upload-example
   memory: 512M
   instances: 1
-  path: build/libs/trivial-spring-boot-0.1.0-SNAPSHOT.jar
+  path: build/libs/spring-s3-upload-example-0.1.0-SNAPSHOT.jar
   buildpack: https://github.com/cloudfoundry/java-buildpack.git
   stack: cflinuxfs2
