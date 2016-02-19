@@ -1,5 +1,6 @@
 package com.dingotiles.s3example;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,6 +13,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/")
 public class UploadController {
 
+    final private UploadService uploadService;
+
+    @Autowired
+    public UploadController(UploadService uploadService) {
+        this.uploadService = uploadService;
+    }
+
     @RequestMapping(method = RequestMethod.GET)
     String home() {
         return "home";
@@ -22,6 +30,7 @@ public class UploadController {
             //@RequestParam("file") MultipartFile myFile,
             final RedirectAttributes redirectAttributes) {
             redirectAttributes.addFlashAttribute("flash.message", "File was uploaded!");
-         return "redirect:/";
+            uploadService.uploadFile();
+        return "redirect:/";
     }
 }
