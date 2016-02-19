@@ -1,4 +1,4 @@
-package com.dingotiles.s3example.controller;
+package com.dingotiles.s3example;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
