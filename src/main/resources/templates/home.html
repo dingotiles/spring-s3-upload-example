@@ -1,1 +1,14 @@
-hello world!
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+      <title>Dingo S3 Uploader</title>
+  </head>
+    <body>
+      <div th:if="${#vars['flash.message']} != null" th:text="${#vars['flash.message']}"/>
+      <h1>Upload a file</h1>
+      <form enctype="multipart/form-data" action="/upload" method="post">
+        <input type="file" name="file" id="file"/>
+        <input type="submit" name="commit" value="Upload file"/>
+      </form>
+  </body>
+</html>
