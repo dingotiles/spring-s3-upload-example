@@ -1,8 +1,7 @@
 package com.dingotiles.s3example;
 
-import org.springframework.cloud.CloudFactory;
+import com.dingotiles.cloudfoundry.connector.s3.info.S3ServiceInfo;
 import org.springframework.cloud.Cloud;
-import org.cloudfoundry.community.service.storage.S3ServiceInfo;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,12 +10,6 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class CloudConfig {
-
-    @Bean
-    Cloud cloud() {
-        CloudFactory cloudFactory = new CloudFactory();
-        return cloudFactory.getCloud();
-    }
 
     @Bean
     S3ServiceInfo serviceInfo(Cloud cloud) {

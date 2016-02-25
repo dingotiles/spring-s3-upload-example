@@ -1,6 +1,6 @@
 package com.dingotiles.s3example;
 
-import org.cloudfoundry.community.service.storage.S3ServiceInfo;
+import com.dingotiles.cloudfoundry.connector.s3.info.S3ServiceInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

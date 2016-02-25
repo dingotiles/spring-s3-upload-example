@@ -14,7 +14,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.thymeleaf:thymeleaf-spring4")
-    compile("org.cloudfoundry.community:spring-cloud-s3-service-connector:1.0.0")
+    compile("com.dingotiles.connectors:spring-cloud-s3-service-connector:0.1.1")
 }
 
 buildscript {
