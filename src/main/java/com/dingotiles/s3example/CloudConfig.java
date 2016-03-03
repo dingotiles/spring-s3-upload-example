@@ -1,6 +1,6 @@
 package com.dingotiles.s3example;
 
-import com.dingotiles.connector.s3.info.S3ServiceInfo;
+import org.cloudfoundry.community.service.storage.S3ServiceInfo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.Cloud;
 import org.springframework.cloud.CloudFactory;
