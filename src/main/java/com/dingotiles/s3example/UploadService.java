@@ -28,6 +28,15 @@ public class UploadService {
     @Autowired
     public UploadService(S3ServiceInfo s3Info) {
         this.s3Info = s3Info;
+        this.s3Client = new AmazonS3Client(new BasicAWSCredentials(s3Info.getAccessKeyId(), s3Info.getSecretAccessKey()));
+    }
+
+    public List<String> allFileNames() {
+
+        List<S3ObjectSummary> s3objects = s3Client.listObjects(s3Info.getBucket()).getObjectSummaries();
+        List<String> names = new ArrayList<String>();
+        s3objects.forEach(object -> names.add(object.getKey()));
+        return names;
     }
 
     public boolean uploadFile(String fileName, InputStream stream) {
