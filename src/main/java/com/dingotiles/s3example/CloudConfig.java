@@ -1,7 +1,9 @@
 package com.dingotiles.s3example;
 
 import com.dingotiles.connector.s3.info.S3ServiceInfo;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.Cloud;
+import org.springframework.cloud.CloudFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,8 +13,19 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class CloudConfig {
 
+    @Value("${S3_SERVICE_NAME:s3-example-bucket}")
+    private String serviceName;
+
+    @Bean
+    Cloud cloud() {
+        CloudFactory cloudFactory = new CloudFactory();
+        Cloud cloud = cloudFactory.getCloud();
+        return cloud;
+    }
+
     @Bean
     S3ServiceInfo serviceInfo(Cloud cloud) {
-        return (S3ServiceInfo) cloud.getServiceInfo("s3");
+        return (S3ServiceInfo) cloud.getServiceInfo(serviceName);
     }
+
 }

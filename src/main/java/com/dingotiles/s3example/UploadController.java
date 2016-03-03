@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.IOException;
+
 /**
  * Created by jcarter on 19/02/16.
  */
@@ -27,10 +29,10 @@ public class UploadController {
 
     @RequestMapping(value = "/upload")
     public String upload(
-            //@RequestParam("file") MultipartFile myFile,
-            final RedirectAttributes redirectAttributes) {
+            @RequestParam("file") MultipartFile myFile,
+            final RedirectAttributes redirectAttributes) throws IOException {
             redirectAttributes.addFlashAttribute("flash.message", "File was uploaded!");
-            uploadService.uploadFile();
+            uploadService.uploadFile(myFile.getOriginalFilename(), myFile.getInputStream());
         return "redirect:/";
     }
 }

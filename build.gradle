@@ -15,6 +15,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.thymeleaf:thymeleaf-spring4")
     compile("com.dingotiles:spring-cloud-s3-service-connector:0.2.0")
+    compile("com.amazonaws:aws-java-sdk:1.10.56")
 }
 
 buildscript {
